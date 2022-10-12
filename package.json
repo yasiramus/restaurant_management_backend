@@ -1,0 +1,28 @@
+{
+  "name": "restaurant_management_backend",
+  "version": "1.0.0",
+  "description": "a restaurant app which allows owners to input the number of available tables and chairs to make it easy for customers to input the number of headout in order to get the available tables and chairs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasiramus/restaurant_management_backend.git"
+  },
+  "author": "Yasira Musah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasiramus/restaurant_management_backend/issues"
+  },
+  "homepage": "https://github.com/yasiramus/restaurant_management_backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
+  }
+}
