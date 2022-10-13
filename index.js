@@ -10,9 +10,11 @@ const { dbConnection } = require("./dataBase/database");
 
 const { routes } = require("./Router/allRoutes");
 
-const environment = process.env.Node_Env || "development";
+// const environment = process.env.Node_Env || "development";
 
-const Port = process.env.Port || 8000;
+const Port = process.env.Port || 5000;
+
+const path = require("path");
 
 const app = express();
 
@@ -30,16 +32,30 @@ if ( app.get('env') === "development") {
 };
 
 // setting the cors globally and setting it origin to the require endpoint
-app.use(cors({
+// app.use(cors({
 
-    credentials: true,
+//     credentials: true,
     
-    origin: 'https://restaurant-mangement.vercel.app/',
+//     origin: 'http://localhost:3000',
 
-    methods:"post"
+//     methods:"POST"
     
-}));
+// }));
+app.use(cors());
 
+if (process.env.Node_Env === "production") {
+    
+    app.use(express.static(path.join(__dirname, "../restaurant_management_frontend/build")));
+
+    app.get("*", (req, res) =>{
+
+        res.sendFile(path.resolve(__dirname, "../", "restaurant_management_frontend", "build", "index.html"))
+
+    })
+} else {
+    
+    app.get("/", (req,res) => res.json("set to production"))
+}
 app.use(routes);
 
 app.listen(Port, () => {
