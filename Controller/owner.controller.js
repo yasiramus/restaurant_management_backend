@@ -18,8 +18,7 @@ exports.saveOwnerData = async (req, res) => {
         // const tabledata = await Table.find().populate("chairs")
 
         // res.status(201).json(tabledata);
-
-        res.status(201).json(saveData);
+        res.status(201).json(saveData._id);
 
     } catch (error) {
 
