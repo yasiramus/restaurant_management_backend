@@ -1,4 +1,4 @@
-# restaurant_management_backend
+# RESTAURANT MANAGEMENT SYSTEM
 
 <p id="description">This MVP is a web application that allow the system to assign the table availables based on how many customers key in by the customer.</p>
 
