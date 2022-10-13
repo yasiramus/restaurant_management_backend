@@ -34,7 +34,7 @@ app.use(cors({
 
     credentials: true,
     
-    origin: 'http://localhost:3000' ||'https://restaurant-mangement.vercel.app/',
+    origin: 'https://restaurant-mangement.vercel.app/',
 
     methods:"post"
     
