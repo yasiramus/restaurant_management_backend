@@ -10,6 +10,8 @@ const { dbConnection } = require("./dataBase/database");
 
 const { routes } = require("./Router/allRoutes");
 
+const environment = process.env.Node_Env || "development";
+
 const Port = process.env.Port || 8000;
 
 const app = express();
@@ -32,7 +34,9 @@ app.use(cors({
 
     credentials: true,
     
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000' ||'https://restaurant-mangement.vercel.app/',
+
+    methods:"post"
     
 }));
 
