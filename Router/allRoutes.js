@@ -10,6 +10,6 @@ routes.post("/saveOwnerData", saveOwnerData);
 
 routes.post("/saveCustomerData", saveCustomerData);
 
-routes.get("/getTableInfo", getAllTables);
+routes.get("/", getAllTables);
 
 module.exports = { routes };
