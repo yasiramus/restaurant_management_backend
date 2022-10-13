@@ -1,8 +1,8 @@
+const cors = require("cors");
+
 const express = require("express");
 
 const helmet = require("helmet");
-
-const cors = require("cors");
 
 const morgan = require("morgan");
 
@@ -14,9 +14,10 @@ const { routes } = require("./Router/allRoutes");
 
 const Port = process.env.Port || 5000;
 
-const path = require("path");
+// const path = require("path");
 
 const app = express();
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true })); //access to the form data
 
@@ -41,21 +42,21 @@ if ( app.get('env') === "development") {
 //     methods:"POST"
     
 // }));
-app.use(cors());
 
-if (process.env.Node_Env === "production") {
+// if (process.env.Node_Env === "production") {
     
-    app.use(express.static(path.join(__dirname, "../restaurant_management_frontend/build")));
+//     app.use(express.static(path.join(__dirname, "../restaurant_management_frontend/build")));
 
-    app.get("*", (req, res) =>{
+//     app.get("*", (req, res) =>{
 
-        res.sendFile(path.resolve(__dirname, "../", "restaurant_management_frontend", "build", "index.html"))
+//         res.sendFile(path.resolve(__dirname, "../", "restaurant_management_frontend", "build", "index.html"))
 
-    })
-} else {
+//     })
+// } else {
     
-    app.get("/", (req,res) => res.json("set to production"))
-}
+//     app.get("/", (req,res) => res.json("set to production"))
+// }
+
 app.use(routes);
 
 app.listen(Port, () => {
