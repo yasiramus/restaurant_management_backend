@@ -17,6 +17,7 @@ const Port = process.env.Port || 5000;
 // const path = require("path");
 
 const app = express();
+
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true })); //access to the form data
